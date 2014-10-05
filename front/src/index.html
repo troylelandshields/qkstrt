@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-controller="AppCtrl">
+  <head>
+    <title ng-bind="pageTitle"></title>
+
+    <!-- social media tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@shieldstroy">
+    <meta name="twitter:title" content="qkstrt">
+    <meta name="twitter:description" content="A quickstart project and guide for using Angular and Google Cloud Endpoints.">
+    <meta name="twitter:creator" content="@shieldstroy">
+    <meta name="twitter:image:src" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846">
+    <meta property="og:title" content="qkstrt" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://bit.ly/ngBoilerplate" />
+    <meta property="og:image" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846" />
+    <meta property="og:description" content="A quickstart project and guide for using Angular and Google Cloud Endpoints.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- font awesome from BootstrapCDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+
+    <!-- it's stupid to have to load it here, but this is for the +1 button -->
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+      { "parsetags": "explicit" }
+    </script>
+  </head>
+  <body>
+    <div class="container" ui-view="main"></div>
+  </body>
+</html>
+
+<script>
+  var ROOT = 'https://hypnotic-spider-723.appspot.com/_ah/api';
+
+  function googleOnLoadCallback(){  
+    var apisToLoad = 1; // must match number of calls to gapi.client.load()  
+    var loadCallback = function() {  
+        if (--apisToLoad == 0) {  
+          console.log('apis loaded')
+            //Manual bootstraping of the application  
+            var $injector = angular.bootstrap(document, ['qkstrt']);  
+            console.log('Angular bootstrap complete ' + gapi);  
+        };  
+    };  
+    gapi.client.load('buttons', 'v1', loadCallback, ROOT);
+  }
+</script>
+
+<script src="https://apis.google.com/js/client.js?onload=googleOnLoadCallback"></script>
