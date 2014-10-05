@@ -61,8 +61,6 @@ angular.module( 'qkstrt.home', [
 
   $scope.click = function(button) {
     buttonsSvc.click(button, function(btn) {
-      //button.timesClicked = btn.timesClicked;
-      //$scope.$apply();
       $scope.updateList();
     });
   };

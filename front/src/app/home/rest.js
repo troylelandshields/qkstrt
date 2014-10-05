@@ -17,4 +17,3 @@ rest.service('buttonsSvc', [function () {
   };
 
 }]);
-
