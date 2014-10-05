@@ -1,10 +1,10 @@
 <div class="well well-lg">
 	<div class="panel-body">
-		<div>
-			<a>	
-				ButtonName 
+		<div ng-repeat="button in buttons | orderBy:'-timesClicked'">
+			<a ng-click="click(button)">	
+				{{button.name}} 
 			</a>
-			has been clicked 12 times.
+			has been clicked {{button.timesClicked}} times.
 		</div>
 	<div>
 </div>

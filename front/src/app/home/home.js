@@ -41,31 +41,11 @@ angular.module( 'qkstrt.home', [
  */
 .controller( 'HomeCtrl', function HomeController( $scope, buttonsSvc ) {
 
-  $scope.updateList = function(){
-    buttonsSvc.retrieveButtons(function(data){
-      console.log("Retrieving buttons...", data.items);
-      $scope.buttons = data.items;
-      $scope.$apply();
-    });
-  };
-
-  $scope.newButton = function(name) {
-    if($scope.form.$valid) {
-      console.log("Creating new button with name", name);
-      buttonsSvc.newButton(name, function(btn) {
-          $scope.updateList();
-      });
-      $scope.name = "";
-    }
-  };
+  $scope.buttons = [{name:"buttonName",timesClicked:12}];
 
   $scope.click = function(button) {
-    buttonsSvc.click(button, function(btn) {
-      $scope.updateList();
-    });
+    button.timesClicked++;
   };
-
-  $scope.updateList();
 
 })
 
