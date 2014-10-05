@@ -1,15 +1,9 @@
-<form name="form" novalidate class="css-form" ng-submit="newButton(name)">
-	<input type="text" ng-model="name" ng-minlength="3" ng-maxlength="50" required />
-	<button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Add Button</button>
-</form>
-
 <div class="well well-lg">
 	<div class="panel-body">
-		<div ng-repeat="button in buttons | orderBy:'-timesClicked'" class="">
-			<a class="btn btn-large btn-default col-md-offset-4 col-md-4" ng-click="click(button)">	
-				{{button.name}} 
-				<span class="badge pull-right">{{button.timesClicked}}</span>
+		<div>
+			<a>	ButtonName 
 			</a>
+			has been clicked 12 times.
 		</div>
 	<div>
 </div>
