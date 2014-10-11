@@ -41,13 +41,20 @@ angular.module( 'qkstrt.home', [
  */
 .controller( 'HomeCtrl', function HomeController( $scope, buttonsSvc ) {
 
-  $scope.buttons = [{name:"buttonName",timesClicked:12}];
+  updateData = function() {
+    buttonsSvc.retrieveButtons(function(data) {
+      $scope.buttons = data;
+    });
+  };
 
   $scope.click = function(button) {
-    button.timesClicked++;
+    buttonsSvc.click(button, function(data) {
+      updateData();
+    });
   };
+
+  updateData();
 
 })
 
 ;
-
